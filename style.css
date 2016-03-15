@@ -1,1 +1,23 @@
+body{
+  background-color: #352929 !important;
+}
 
+.jumbotron {
+  text-align: center;
+  padding-top: 10px !important;
+  background-color: rgba(0, 0, 0, 0.07) !important;
+  color: white !important;
+}
+
+.resultsList {
+  background-color: #574E4E;
+  margin-top: 20px;
+  border-top: solid;
+  border-bottom: solid;
+  border-color: #3A3030;
+  border-width: thin;
+}
+
+.results {
+  margin-bottom: 20px;
+}
