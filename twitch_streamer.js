@@ -53,7 +53,7 @@ $(document).ready(function() {
 
       html += "<a href='" + urlChannel + "' target='_blank'>" +
         "<div class='results row container-fluid'>" +
-        "<div class='col-xs-6 col-sm-4'>" + "<b> name: " + name + "</b>" + "</div>" +
+        "<div class='col-xs-6 col-sm-4'>" + "<b>" + name + "</b>" + "</div>" +
         "<div class='col-xs-6 col-sm-4'>" + "<em> status </em></div>" +
         "<div class='col-xs-6 col-sm-4'>" + "<p> title of streaming </p></div>" +
         //"<br> url account: " + urlDataAccount +
