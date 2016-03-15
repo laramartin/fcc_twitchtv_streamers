@@ -9,15 +9,13 @@
   /*margin-bottom: 20px;*/
   padding: 10px 0px 10px 0px;
   border-bottom: solid;
-  border-color: #3A3030;
-  border-width: thin;
-  background-color: rgba(0, 0, 0, 0.05);
+  border-color: white;
+  border-width: thick;
+  /*background-color: rgba(0, 0, 0, 0.05);*/
+  background-color: #DBCDE6;
 }
 
-.resultsList{
-  border-top: solid;
-  border-left: solid;
-  border-right: solid;
-  border-color: #3A3030;
-  border-width: thin;
+a {
+  color: inherit !important;
+  text-decoration: inherit !important; /* no underline */
 }
