@@ -20,3 +20,9 @@ a {
   color: inherit !important;
   text-decoration: inherit !important; /* no underline */
 }
+
+footer {
+  margin-top: 30px;
+  width: 100%;
+  text-align: center;
+}
