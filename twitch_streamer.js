@@ -3,7 +3,7 @@ $(document).ready(function() {
 
 
   var channels = ["freecodecamp", "storbeck", "terakilobyte", "habathcx","RobotCaleb",
-    "thomasballinger","noobs2ninjas","beohoff", "brunofin", "comster404"]
+  "thomasballinger","noobs2ninjas","beohoff", "brunofin", "comster404"]
 
 
   function getUrlData(channel){
@@ -15,54 +15,64 @@ $(document).ready(function() {
   }
 
 
-  // function streamerStatus(url) {
-  //   $.getJSON(url, function(data) {
-  //     console.log(data);
-  //     //var statusChannel = "";
-  //
-  //     if (data.stream == null) {
-  //       if (data.status == 422){
-  //         console.log("error 422: " + data.status);
-  //         var statusChannel = "Closed";
-  //
-  //       }else {
-  //         console.log("There's no streaming, sorry!");
-  //         var statusChannel = "Offline";
-  //       }
-  //     } else {
-  //       console.log("NOW LIVE!!");
-  //       var statusChannel = "Online";
-  //     }
-  //   });
-  // };
+  function streamerStatus(name) {
+    $.getJSON(getUrlData(name), function(data) {
+      console.log(data);
+      var statusChannel = "";
+      var title = "";
+
+      if (data.stream == null) {
+        if (data.status == 422){
+          console.log("error 422: " + data.status);
+          statusChannel = "Closed";
+
+        }else {
+          console.log("There's no streaming, sorry!");
+          statusChannel = "Offline";
+        }
+      } else {
+        console.log("NOW LIVE!!");
+        statusChannel = "Online";
+        title = data.stream.game;
+      }
+      showChannel(getUrlChannel(name), name, statusChannel, title)
+    });
+  };
 
 
   function displayData(channelsList) {
-    var html = "";
 
-    for (var i = 0; i < channels.length; i++){
-      var name = channels[i];
+
+    for (var i = 0; i < channelsList.length; i++){
+      var name = channelsList[i];
       var urlDataAccount = getUrlData(name);
+      streamerStatus(name);
+
       var urlChannel = getUrlChannel(name);
 
-      console.log("return of getUrlAccount: " + getUrlData(channels[i]));
-      console.log("url get data Account: " + urlDataAccount);
-      console.log("url channel: " + urlChannel);
-      //console.log("status: " + statusChannel);
-      console.log("==========");
-
-      html += "<a href='" + urlChannel + "' target='_blank'>" +
-        "<div class='results row container-fluid'>" +
-        "<div class='col-xs-6 col-sm-4'>" + "<b>" + name + "</b>" + "</div>" +
-        "<div class='col-xs-6 col-sm-4'>" + "<em> status </em></div>" +
-        "<div class='col-xs-6 col-sm-4'>" + "<p> title of streaming </p></div>" +
-        //"<br> url account: " + urlDataAccount +
-        //"<br> status: " + statusChannel +
-        "</p></div></a>";
+          console.log("return of getUrlAccount: " + getUrlData(channels[i]));
+          console.log("url get data Account: " + urlDataAccount);
+          console.log("url channel: " + urlChannel);
+          //console.log("status: " + statusChannel);
+          console.log("==========");
     };
 
-    $(".resultsList").html(html);
 
+  };
+
+  function showChannel(urlChannel, name, status, title){
+
+
+    var html = "<a href='" + urlChannel + "' target='_blank'>" +
+    "<div class='results row container-fluid'>" +
+    "<div class='col-xs-6 col-sm-4'>" + "<b>" + name + "</b>" + "</div>" +
+    "<div class='col-xs-6 col-sm-4'>" + "<em>" + status + "</em></div>" +
+    "<div class='col-xs-6 col-sm-4'>" + "<p> " + title + " </p></div>" +
+    //"<br> url account: " + urlDataAccount +
+    //"<br> status: " + statusChannel +
+    "</p></div></a>";
+
+    $(".resultsList").append(html);
   };
 
   displayData(channels);
