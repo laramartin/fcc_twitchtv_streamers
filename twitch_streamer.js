@@ -15,17 +15,16 @@ $(document).ready(function() {
   }
 
 
-
   function streamerStatus(name) {
     $.getJSON(getUrlData(name), function(data) {
       console.log(data);
       var statusChannel = "";
-      var offlineBackground = "";
+      var offlineBackground = "#DBCDE6";
 
       if (data.stream == null) {
         if (data.status == 422){
           console.log("error 422: " + data.status);
-          statusChannel = "Closed";
+          statusChannel = "Account closed";
 
         }else {
           console.log("There's no streaming, sorry!");
@@ -66,7 +65,7 @@ $(document).ready(function() {
     console.log("this is the color: " + offlineBackground);
 
     var html = "<a href='" + urlChannel + "' target='_blank'>" +
-    "<div class='results row container-fluid' background-color:" + offlineBackground + ">" +
+    "<div class='results row container-fluid' style='background-color:" + offlineBackground + "'>" +
     "<div class='col-xs-6 col-sm-4'>" + "<b>" + name + "</b>" + "</div>" +
     "<div class='col-xs-12 col-sm-8'>" + "<em>" + status + "</em></div>" +
 
