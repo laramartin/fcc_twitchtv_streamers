@@ -6,12 +6,10 @@
 }
 
 .results {
-  /*margin-bottom: 20px;*/
   padding: 10px 0px 10px 0px;
   border-bottom: solid;
   border-color: white;
   border-width: thick;
-  /*background-color: rgba(0, 0, 0, 0.05);*/
   background-color: #DBCDE6;
   text-align: center;
 }
